@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.client {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, rgb(117, 51, 179), rgb(126, 36, 109));
+  border: 1px solid black;
+  height: 600px;
+  width: 45%;
+  margin-left: 80px;
+  border-radius: 25px;
+
+}
+
+.text_to_customer {
+  background-color: white;
+  padding: 10px;
+  font-size: small;
+  width: 75%;
+  margin-left: 32px;
+  border-radius: 10px;
+}
+
+.dropdown-toggle {
+  width: 75%;
+  margin-left: 35px;
+  height: 50px;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: rgb(206, 142, 217);
+}
+
+.dropdown-content {
+  background-color: azure;
+  padding: 10px;
+  font-size: small;
+  width: 75%;
+  margin-left: 32px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  margin-top: 500px;
+
+  margin-left: 130px;
+
+}
+
+.send {
+
+  height: 45px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: rgb(206, 142, 217)
+}
+
+.name {
+  color: white;
+  text-align: center;
+}
+
+.email {
+  color: white;
+  margin-top: -20px;
+  text-align: center;
+}
