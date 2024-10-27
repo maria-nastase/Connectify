@@ -1,10 +1,6 @@
-// app/api/transcribe/route.js
 import fs from 'fs';
 import OpenAI from 'openai';
 import { NextResponse } from 'next/server';
-// import dotenv from 'dotenv';
-
-// dotenv.config({ path: '.env.local' });
 
 const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_API_KEY });
 
