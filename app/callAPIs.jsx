@@ -25,7 +25,7 @@ const AudioProcessor = () => {
       console.log('Transcription Data:', transcriptionData);
 
       // Assuming you have a translation function set up in your API
-      const translationResponse = await fetch('/api/translation', {
+      const translationResponse = await fetch('./api/translations', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,16 +36,34 @@ const AudioProcessor = () => {
       const translationData = await translationResponse.json();
       console.log('Translation Data:', translationData);
 
-      // Update the state with the results
+      const ttsResponse = await fetch('./api/text-to-speech', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: translationData.translation }),
+      });
+
+      if (!ttsResponse.ok) {
+        const errorMessage = await ttsResponse.text();
+        console.error('Text-to-Speech API response:', ttsResponse.status, errorMessage);
+        throw new Error(`Text-to-Speech error: ${ttsResponse.statusText}`);
+      }
+
+      const ttsData = await ttsResponse.json();
+      console.log('Text-to-Speech Data:', ttsData);
+
+      // Update state with results
       setResult({
         transcription: transcriptionData.transcription,
-        translation: translationData.translatedText, // Adjust based on your response structure
-        audioFilePath: './audio/combiende.mp3', // Update accordingly
+        translation: translationData.translation,
+        audioFilePath: ttsData.audioFilePath, // Assume response includes audio file path
       });
     } catch (error) {
       console.error("Error processing audio:", error);
     }
   };
+  
 
   return (
     <div>

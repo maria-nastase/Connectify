@@ -13,7 +13,7 @@ export async function POST(req) {
             model: 'whisper-1',
         });
 
-        console.log(transcription.text);
+        console.log('from speech-to-text',transcription.text);
         return NextResponse.json({ transcription: transcription.text }, { status: 200 });
     } catch (error) {
         console.error("Error transcribing audio:", error);
