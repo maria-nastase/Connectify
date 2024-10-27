@@ -1,9 +1,11 @@
 // Inside your React component
 const { useState } = require('react');
+import ScreenB from "./components/ScreenB/ScreenB";
+
 
 const AudioProcessor = () => {
   const [result, setResult] = useState({ transcription: '', translation: '', audioFilePath: '' });
-  
+
   const handleProcess = async () => {
     try {
       // Make the API call to your transcription route
@@ -12,7 +14,7 @@ const AudioProcessor = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ filePath: './app/audio/combiende.mp3' }),
+        body: JSON.stringify({ filePath: './public/recording/speech.webm' }),
       });
 
       if (!transcriptionResponse.ok) {
@@ -63,16 +65,21 @@ const AudioProcessor = () => {
       console.error("Error processing audio:", error);
     }
   };
-  
 
+  // const ScreenB = ({transcription, translation}) => {
   return (
     <div>
+
+      <p id="transcription">`Transcription: ${result.transcription}`</p>
+      <p id="translation">`Translation: ${result.translation}`</p>
+      <ScreenB transcription={result.transcription} translation={result.translation} />
+      <p id="audio">`Audio File Path: ${result.audioFilePath}`</p>
       <button onClick={handleProcess}>Process Audio</button>
-      <p>Transcription: {result.transcription}</p>
-      <p>Translation: {result.translation}</p>
-      <p>Audio File Path: {result.audioFilePath}</p>
     </div>
+
+
   );
 };
+// };
 
 export default AudioProcessor;

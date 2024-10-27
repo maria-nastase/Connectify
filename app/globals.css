@@ -13,20 +13,26 @@
     --foreground: #ededed;
   }
 }
+@media (max-width: 768px) {
+  .container {
+    width: 100%; /* Use full width on smaller screens */
+    padding: 10px; /* Less padding for compactness */
+  }
+}
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: linear-gradient(to bottom, rgb(117, 51, 179), rgb(126, 36, 109))var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: linear-gradient(to bottom, rgb(117, 51, 179), rgb(126, 36, 109));
 }
 
 .client {
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom, rgb(117, 51, 179), rgb(126, 36, 109));
-  border: 1px solid black;
-  height: 600px;
-  width: 45%;
+  height: 800px;
+  width: 100%;
   margin-left: 80px;
   border-radius: 25px;
 
@@ -81,10 +87,12 @@ body {
 .name {
   color: white;
   text-align: center;
+  margin-right: 50px;
 }
 
 .email {
   color: white;
   margin-top: -20px;
   text-align: center;
+  margin-right: 50px;
 }
