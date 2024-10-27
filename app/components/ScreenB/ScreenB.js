@@ -13,7 +13,6 @@ const ScreenB = ({transcription}) => {
 
   return (
     <div>
-      <h2>Agent Side</h2>
       {/* <nav>
         <Link to="B1">Sub Screen B1</Link> | <Link to="B2">Sub Screen B2</Link>
       </nav>
@@ -29,7 +28,7 @@ const ScreenB = ({transcription}) => {
                 </h2>
             </div>
             <div className="email">
-                <p>emily.johnson@gmail.com</p>``
+                <p>emily.johnson@gmail.com</p>
             </div>
           {/* Button to toggle dropdown */}
           <button className="dropdown-toggle" onClick={toggleDropdown}>
@@ -45,13 +44,10 @@ const ScreenB = ({transcription}) => {
           )}
         </div>
         <div className="text_to_customer">
-          <p>
           <p id="transcription"></p>
-          </p>
         </div>
         <div className="footer">
           <AudioRecorder />
-          <button className="send">Send</button>
         </div>
         
       </div>

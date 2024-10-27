@@ -70,11 +70,10 @@ const AudioProcessor = () => {
   return (
     <div>
 
-      <p id="transcription">`Transcription: ${result.transcription}`</p>
-      <p id="translation">`Translation: ${result.translation}`</p>
+      <p id="transcription">Transcription: {result.transcription}</p>
+      <p id="translation">Translation: {result.translation}</p>
       <ScreenB transcription={result.transcription} translation={result.translation} />
-      <p id="audio">`Audio File Path: ${result.audioFilePath}`</p>
-      <button onClick={handleProcess}>Process Audio</button>
+      <button className="send" onClick={handleProcess}>Send</button>
     </div>
 
 
