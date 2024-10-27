@@ -1,3 +1,4 @@
 {
+  "/api/speech-to-text/route": "app/api/speech-to-text/route.js",
   "/page": "app/page.js"
 }
