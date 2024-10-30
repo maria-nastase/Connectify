@@ -5,7 +5,7 @@ import AudioProcessor from './callAPIs.jsx';
 const HomePage = () => {
   return (
     <div>
-      <AudioProcessor />
+      {<AudioProcessor />}
     </div>
   );
 };

@@ -21,35 +21,32 @@ const ScreenB = ({transcription}) => {
         <Route path="B2" element={<ScreenB2 />} />
       </Routes> */}
       <div className="client">
-        <div className="dropdown-container">
-            <div className="name text-2xl" style={{ padding: '20px' }} >
+        <div className="header flex">
+          <img style={{ width: "200px", height: "200px", marginRight: "20px"}} src="./images/logo.png"/>
+          <div className="info text-center">
+            <div className="name text-4xl bold" style={{ padding: '20px' }} >
                 <h2>
-                    Emily Johnson
+                    <b>Agent Name</b>
                 </h2>
             </div>
             <div className="email">
-                <p>emily.johnson@gmail.com</p>
+                <p>Online</p>
             </div>
-          {/* Button to toggle dropdown */}
-          <button className="dropdown-toggle" onClick={toggleDropdown}>
-            <span>{isOpen ? "▼" : "►"}</span> {/* Arrow changes direction */}
-            Click to see more
-          </button>
-
-          {/* Conditionally render the content */}
-          {isOpen && (
-            <div className="dropdown-content">
-              <p id="translation"></p>
-            </div>
-          )}
+          </div>
+          <div className="text-fields">
+            {isOpen && (
+              <div className="dropdown-content text-to-customer">
+                <p id="translation">{translation}</p>
+              </div>
+            )}
+          </div>
+          <div className="text-to-customer">
+            <p id="transcription">{transcription}</p>
+          </div>
         </div>
-        <div className="text_to_customer">
-          <p id="transcription"></p>
-        </div>
-        <div className="footer">
+        <div className="button">
           <AudioRecorder />
         </div>
-        
       </div>
     </div>
   );

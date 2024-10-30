@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { FaMicrophone, FaStop } from 'react-icons/fa';
 
 const AudioRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -10,7 +11,7 @@ const AudioRecorder = () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: 'audio/webm;codecs=opus' // Specify codec for better compatibility
+        mimeType: 'audio/webm;codecs=opus'
       });
 
       mediaRecorderRef.current = mediaRecorder;
@@ -35,7 +36,6 @@ const AudioRecorder = () => {
 
           const data = await response.json();
           if (data.path) {
-            // Create a URL for the recorded audio
             setAudioURL(data.path);
           }
         } catch (error) {
@@ -62,9 +62,9 @@ const AudioRecorder = () => {
     <div className="flex flex-col items-center gap-4">
       <button
         onClick={isRecording ? stopRecording : startRecording}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="flex audio items-center justify-center w-16 h-16 text-purple-600 rounded-full"
       >
-        {isRecording ? 'Stop Recording' : 'Start Recording'}
+        {isRecording ? <FaStop size={24} /> : <FaMicrophone size={24} />}
       </button>
 
       {audioURL && (

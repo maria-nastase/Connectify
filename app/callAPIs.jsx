@@ -1,14 +1,13 @@
-// Inside your React component
 const { useState } = require('react');
 import ScreenB from "./components/ScreenB/ScreenB";
-
+import './globals.css';
+import { FaPaperPlane } from 'react-icons/fa';
 
 const AudioProcessor = () => {
   const [result, setResult] = useState({ transcription: '', translation: '', audioFilePath: '' });
 
   const handleProcess = async () => {
     try {
-      // Make the API call to your transcription route
       const transcriptionResponse = await fetch('./api/speech-to-text', {
         method: 'POST',
         headers: {
@@ -26,7 +25,6 @@ const AudioProcessor = () => {
       const transcriptionData = await transcriptionResponse.json();
       console.log('Transcription Data:', transcriptionData);
 
-      // Assuming you have a translation function set up in your API
       const translationResponse = await fetch('./api/translations', {
         method: 'POST',
         headers: {
@@ -55,7 +53,6 @@ const AudioProcessor = () => {
       const ttsData = await ttsResponse.json();
       console.log('Text-to-Speech Data:', ttsData);
 
-      // Update state with results
       setResult({
         transcription: transcriptionData.transcription,
         translation: translationData.translation,
@@ -68,17 +65,20 @@ const AudioProcessor = () => {
 
   // const ScreenB = ({transcription, translation}) => {
   return (
-    <div>
-
-      <p id="transcription">Transcription: {result.transcription}</p>
-      <p id="translation">Translation: {result.translation}</p>
-      <ScreenB transcription={result.transcription} translation={result.translation} />
-      <button className="send" onClick={handleProcess}>Send</button>
+    <div className="fields">
+      <ScreenB translation={result.translation}/>
+      <p className="textField dropdown-content text-to-customer bottom-space" id="transcription"><b>You: </b>{result.transcription}</p>
+      <button 
+  className="send w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-purple-500"
+  onClick={handleProcess}
+>
+  <FaPaperPlane size={20} />
+</button>
+      <p className="textField dropdown-content text-to-customer" id="translation"><b>Client: </b>{result.translation}</p>
     </div>
 
 
   );
 };
-// };
 
 export default AudioProcessor;
