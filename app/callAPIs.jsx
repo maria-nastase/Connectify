@@ -5,6 +5,7 @@ import { FaPaperPlane } from 'react-icons/fa';
 
 const AudioProcessor = () => {
   const [result, setResult] = useState({ transcription: '', translation: '', audioFilePath: '' });
+  const [audioSrc, setAudioSrc] = useState(null);
 
   const handleProcess = async () => {
     try {
@@ -61,6 +62,15 @@ const AudioProcessor = () => {
     } catch (error) {
       console.error("Error processing audio:", error);
     }
+
+    const audioUrl = 'audio/speech.mp3'; // Replace with the actual URL of the created file
+    setAudioSrc(audioUrl);
+
+    // Automatically play the audio
+    const audioElement = document.getElementById('audio-player');
+    if (audioElement) {
+      audioElement.play();
+    }
   };
 
   // const ScreenB = ({transcription, translation}) => {
@@ -74,10 +84,8 @@ const AudioProcessor = () => {
 >
   <FaPaperPlane size={20} />
 </button>
-      <p className="textField dropdown-content text-to-customer" id="translation"><b>Client: </b>{result.translation}</p>
+      <p className="textField dropdown-content text-to-customer" id="translation"><b>Translation: </b>{result.translation}</p>
     </div>
-
-
   );
 };
 

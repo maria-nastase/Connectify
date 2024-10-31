@@ -60,12 +60,19 @@ body {
 }
 
 .text_to_customer {
-  background-color: white;
   padding: 10px;
   font-size: small;
   width: 75%;
   border-radius: 10px;
   margin: auto;
+}
+
+#translation {
+  background-color: rgb(197,248,115);
+}
+
+#transcription {
+  background-color: azure;
 }
 
 .dropdown-toggle {
@@ -79,7 +86,6 @@ body {
 }
 
 .dropdown-content {
-  background-color: azure;
   padding: 15px;
   width: 75%;
   margin-left: auto;
