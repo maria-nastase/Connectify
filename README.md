@@ -10,3 +10,6 @@ Our tool enables speech detection in any foreign language—such as French, Span
 
 ## How we built it
 We created the tool as a Next.js React app, integrating OpenAI APIs for seamless audio transcription, translation, and text-to-speech functionalities. On the frontend, we used React and Tailwind CSS, while the backend was developed with Node.js and JavaScript/TypeScript. For speech-to-text and text-to-speech processing, we utilized OpenAI’s Whisper-1, and for accurate translation, we incorporated GPT-4.
+
+## Learn more
+https://devpost.com/software/connectify-jq1ml4
